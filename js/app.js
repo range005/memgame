@@ -1,8 +1,24 @@
 /*
  * Create a list that holds all of your cards
  */
+const icons = ["fa fa-diamond","fa fa-diamond","fa fa-paper-plane-o","fa fa-paper-plane-o","fa fa-anchor","fa fa-anchor","fa fa-bolt","fa fa-bolt","fa fa-cube","fa fa-cube","fa fa-leaf","fa fa-leaf","fa fa-bicycle","fa fa-bicycle","fa fa-bomb","fa fa-bomb"];
 
+const cardsContainer = document.querySelector(".deck");
 
+let openedCards = [];
+
+for(let i = 0; i < icons.length; i++) {
+    const card = document.createElement("li");
+    card.classList.add("card");
+    card.innerHTML = '<i class = "${icons[i]}"></i>';
+    cardsContainer.appendChild(card);
+
+    card.addEventListener("click", function() {
+        
+        card.classList.add("open","show");
+        openedCards.push(this);
+    });
+}
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
